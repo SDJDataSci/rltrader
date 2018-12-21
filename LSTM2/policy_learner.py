@@ -190,12 +190,12 @@ class PolicyLearner:
             logger.info("[Epoch %s/%s]\tEpsilon:%.4f\t#Expl.:%d/%d\t"
                         "#Buy:%d\t#Sell:%d\t#Hold:%d\t"
                         "#Stocks:%d\tPV:%s\t"
-                        "POS:%s\tNEG:%s\tLoss:%10.6f\tAvg Loss:%10.6f" % (
+                        "POS:%s\tNEG:%s\tLoss:%10.6f" % (
                             epoch_str, num_epoches, epsilon, exploration_cnt, itr_cnt,
                             self.agent.num_buy, self.agent.num_sell, self.agent.num_hold,
                             self.agent.num_stocks,
                             locale.currency(self.agent.portfolio_value, grouping=True),
-                            pos_learning_cnt, neg_learning_cnt, loss, avgLoss))
+                            pos_learning_cnt, neg_learning_cnt, loss))
 
             # 학습 관련 정보 갱신
             max_portfolio_value = max(

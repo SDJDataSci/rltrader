@@ -51,7 +51,7 @@ if __name__ == '__main__':
     # 비 학습 투자 시뮬레이션 시작
     policy_learner = PolicyLearner(
         stock_code=stock_code, chart_data=chart_data, training_data=training_data,
-        min_trading_unit=1, max_trading_unit=2)
+        min_trading_unit=1, max_trading_unit=100000)
     policy_learner.trade(balance=10000000,
                          model_path=os.path.join(
                              settings.BASE_DIR,

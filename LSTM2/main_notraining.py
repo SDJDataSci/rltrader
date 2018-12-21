@@ -7,7 +7,7 @@ from policy_learner import PolicyLearner
 
 if __name__ == '__main__':
     stock_code = '005930'  # 삼성전자
-    model_ver = '20181219152546' #생성 년/월/일/시간/분/초 h5 파일 참조
+    model_ver = '20181221130522' #생성 년/월/일/시간/분/초 h5 파일 참조
 
     # 로그 기록
     log_dir = os.path.join(settings.BASE_DIR, 'logs/%s' % stock_code)
@@ -51,7 +51,7 @@ if __name__ == '__main__':
     # 비 학습 투자 시뮬레이션 시작
     policy_learner = PolicyLearner(
         stock_code=stock_code, chart_data=chart_data, training_data=training_data,
-        min_trading_unit=1, max_trading_unit=2)
+        min_trading_unit=1, max_trading_unit=2, delayed_reward_threshold=.3, lr=.001)
     policy_learner.trade(balance=10000000,
                          model_path=os.path.join(
                              settings.BASE_DIR,
