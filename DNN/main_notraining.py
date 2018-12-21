@@ -2,12 +2,12 @@ import logging
 import os
 import settings
 import data_manager
-from policy_learner import PolicyLearner
+from policy_learner_dnn import PolicyLearner
 
 
 if __name__ == '__main__':
     stock_code = '005930'  # 삼성전자
-    model_ver = '20180202000545'
+    model_ver = '20181219171656'
 
     # 로그 기록
     log_dir = os.path.join(settings.BASE_DIR, 'logs/%s' % stock_code)
@@ -55,4 +55,4 @@ if __name__ == '__main__':
     policy_learner.trade(balance=10000000,
                          model_path=os.path.join(
                              settings.BASE_DIR,
-                             'models/{}/model_20181219152546.h5'.format(stock_code)))
+                             'models/{}/model_{}.h5'.format(stock_code, model_ver)))
